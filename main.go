@@ -40,7 +40,7 @@ func main() {
 	for x := 0; x < iterations; x++ {
 		queryStart = time.Now()
 		_ = conn.QueryRow(ctx, "select 1").Scan(&bitbucket)
-		durations[iterations] = time.Since(queryStart)
+		durations[x] = time.Since(queryStart)
 	}
 
 	totalElapsed := time.Since(start)
