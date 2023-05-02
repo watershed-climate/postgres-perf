@@ -15,7 +15,7 @@ import (
 func getIterations() int {
 	if value := os.Getenv("ITERATIONS"); value != "" {
 		parsed, err := strconv.Atoi(value)
-		if err != nil {
+		if err == nil {
 			return parsed
 		}
 	}
