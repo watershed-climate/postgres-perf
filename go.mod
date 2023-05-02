@@ -1,4 +1,4 @@
-module postgres-perf
+module github.com/watershed-climate/postgres-perf
 
 go 1.20
 
