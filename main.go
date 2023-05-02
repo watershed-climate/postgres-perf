@@ -39,7 +39,11 @@ func main() {
 	durations := make([]time.Duration, iterations)
 	for x := 0; x < iterations; x++ {
 		queryStart = time.Now()
-		_ = conn.QueryRow(ctx, "select 1").Scan(&bitbucket)
+		err = conn.QueryRow(ctx, "select 1").Scan(&bitbucket)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "unable to connect to database: %+v\n", err)
+			os.Exit(1)
+		}
 		durations[x] = time.Since(queryStart)
 	}
 
